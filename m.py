@@ -3,37 +3,31 @@ from tkinter import messagebox
 from tkinter import ttk
 from datetime import datetime
 
-trabajador1 = {
+class trabajador():
     
-}
-trabajador2 = {
-    
-}
-trabajador3 = {
-    
-}
-trabajador4 ={
-    
-}
-def periodos():
-    tk.Label(ventanap, text="vacaciones").pack()
-    tk.Label(ventanap, text="datos del alumno", font=("Arial", 14)).pack(pady=10)
+    def __init__(self,nombre,apellido,edad):
+      self.nombre = nombre
+      self.apellido = apellido
+      self.edad = edad
+    def datos(self):
+      tk.Label(ventanap, text="Hola {self.nombre} {self.apellido} con {self.edad}")
+    def periodo():
+     tk.Label(ventanap, text="vacaciones").pack()
 
-    tk.Label(ventanap, text="ingrese el nombre del alumno").pack()
-    campo_texto_uno = tk.Entry(ventanap)
-    campo_texto_uno.pack(pady=5)
 
-    tk.Label(ventanap, text="selección su grupo:").pack()
-    opcion = tk.StringVar(value="invierno")
-    tk.Radiobutton(ventanap, text="invierno", variable=opcion, value="invierno").pack()
-    tk.Radiobutton(ventanap, text="primavera", variable=opcion, value="primavera").pack()
-    tk.Radiobutton(ventanap, text="verano", variable=opcion, value="verano").pack()
-    tk.Radiobutton(ventanap, text="otoño", variable=opcion, value="otoño").pack()
+     tk.Label(ventanap, text="selección su grupo:").pack()
+     opcion = tk.StringVar(value="invierno")
+     tk.Radiobutton(ventanap, text="invierno", variable=opcion, value="invierno").pack()
+     tk.Radiobutton(ventanap, text="primavera", variable=opcion, value="primavera").pack()
+     tk.Radiobutton(ventanap, text="verano", variable=opcion, value="verano").pack()
+     tk.Radiobutton(ventanap, text="otoño", variable=opcion, value="otoño").pack()
 
-    tk.Label(ventanap, text="Numero de lista:").pack()
-    combo = ttk.Combobox(ventanap, values=["Uno", "Dos", "Tres","cuatro"])
-    combo.pack()
-    combo.current(0)
+     tk.Label(ventanap, text="Numero de lista:").pack()
+     combo = ttk.Combobox(ventanap, values=["Uno", "Dos", "Tres","cuatro"])
+     combo.pack()
+     combo.current(0)
+t1 = trabajador("rodrigo","perez","24")
+t1.datos("rodrigo","perez","24")
 ventanap = tk.Tk()
 ventanas = tk.Frame(ventanap, bg="white", width=120)
 ventanas.pack(side="left", fill="y")
