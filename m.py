@@ -5,31 +5,49 @@ from datetime import datetime
 
 class trabajador():
     
-    def __init__(self,nombre,apellido,edad):
+    def __init__(self,nombre,edad):
+      self.lista = []
+      self.ventanap = ventanap
       self.nombre = nombre
-      self.apellido = apellido
       self.edad = edad
     def datos(self):
-      tk.Label(ventanap, text="Hola {self.nombre} {self.apellido} con {self.edad}")
-    def periodo():
+      self.areas()
+      tk.Label(ventanap, text=f"Hola {self.nombre} {self.apellido} con {self.edad}")
+    def periodo(self):
      tk.Label(ventanap, text="vacaciones").pack()
-
-
+     
      tk.Label(ventanap, text="selección su grupo:").pack()
-     opcion = tk.StringVar(value="invierno")
-     tk.Radiobutton(ventanap, text="invierno", variable=opcion, value="invierno").pack()
-     tk.Radiobutton(ventanap, text="primavera", variable=opcion, value="primavera").pack()
-     tk.Radiobutton(ventanap, text="verano", variable=opcion, value="verano").pack()
-     tk.Radiobutton(ventanap, text="otoño", variable=opcion, value="otoño").pack()
+     self.opcion = tk.StringVar(value="invierno")
+     tk.Radiobutton(ventanap, text="invierno", variable=self.opcion, value="invierno").pack()
+     tk.Radiobutton(ventanap, text="primavera", variable=self.opcion, value="primavera").pack()
+     tk.Radiobutton(ventanap, text="verano", variable=self.opcion, value="verano").pack()
+     tk.Radiobutton(ventanap, text="otoño", variable=self.opcion, value="otoño").pack()
 
      tk.Label(ventanap, text="Numero de lista:").pack()
-     combo = ttk.Combobox(ventanap, values=["Uno", "Dos", "Tres","cuatro"])
-     combo.pack()
-     combo.current(0)
-t1 = trabajador("rodrigo","perez","24")
-t1.datos("rodrigo","perez","24")
+     self.combo = ttk.Combobox(ventanap, values=["Uno", "Dos", "Tres","cuatro"])
+     self.combo.pack()
+     self.combo.current(0)
+    def agregar (self,nombre):
+        if self.nombre not in self.lista:
+            self.lista.append(self.nombre) 
+        else:
+            tk.Label(ventanap,text=f"{self.nombre} ya esta agregado").pack()
+    def lista_de_trabajadore(self):
+        tk.Label(ventanap,text="lista de empleados").pack()
+        for nombre in self.lista:
+            tk.Label(ventanap,text=f"{self.nombre}").pack()
+    def areas():
+     for widget in areas.winfo_children():
+        widget.destroy()
 ventanap = tk.Tk()
+ventanap.title("control de asistencias")
+ventanap.geometry("420x250")
+areas = tk.Frame(ventanap, bg="white")
+areas.pack(side="right", expand=True, fill="both")
 ventanas = tk.Frame(ventanap, bg="white", width=120)
+ventanas.pack(side="left", fill="y")
+boton1 = tk.Button(ventanas,text="vacaciones",width=15).pack(pady=10)
+ventanap.mainloop()
 ventanas.pack(side="left", fill="y")
 ventanap.title("control de asistencias")
 ventanap.geometry("420x250")
